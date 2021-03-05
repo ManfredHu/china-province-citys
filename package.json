@@ -1,0 +1,19 @@
+{
+  "name": "china-province-citys",
+  "version": "1.0.0",
+  "description": "## 数据来源 微信支付: https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml 下省市区编号对照表",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManfredHu/china-province-citys.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManfredHu/china-province-citys/issues"
+  },
+  "homepage": "https://github.com/ManfredHu/china-province-citys#readme"
+}
