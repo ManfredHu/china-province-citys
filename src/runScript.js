@@ -27,21 +27,26 @@ for(const [idx,item] of linesContent.entries()) {
   
   if (!rstData[j[0]] && j.length === 1) {
     // 新建一级
-    if (j[0] !== '台湾省') { // 展示不支持台湾的银行
+    rstData[j[0]] = {
+      id: k[0],
+      label: j[0],
+      value: j[0],
+      options: []
+    }
+  } else if (j.length === 2) {
+    // 新建二级
+    console.log(`二级`)
+    console.log(`k`, k)
+    console.log(`j`, j)
+    if (!rstData[j[0]] && j[0] === j[1]) {
+      // 港澳新建一级
       rstData[j[0]] = {
         id: k[0],
         label: j[0],
         value: j[0],
         options: []
       }
-    }
-    
-  } else if (j.length === 2) {
-    // 新建二级
-    console.log(`二级`)
-    console.log(`k`, k)
-    console.log(`j`, j)
-    if (!rstData[j[0]]) {
+    } else if (!rstData[j[0]]) {
       console.error(`错误，没找到${j[0]}`)
     } else {
       const cityList = rstData[j[0]].options
@@ -53,9 +58,20 @@ for(const [idx,item] of linesContent.entries()) {
     }
   } else if (j.length === 3) {
     // 新建三级
-    // console.log(`三级`)
-    // console.log(`k`, k)
-    // console.log(`j`, j)
+    if (['香港特别行政区', '澳门特别行政区'].includes(j[0])) {
+      // 这里港澳是作为三级地区表示，转化为二级
+      console.log(`三级`)
+      console.log(`k`, k)
+      console.log(`j`, j)
+
+      const cityList = rstData[j[0]].options
+      cityList.push({
+        id: k[0],
+        label: j[2],
+        value: j[2]
+      })
+    }
+    
   }
 }
 console.log(`级别统计`, count)
